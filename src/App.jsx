@@ -7,6 +7,7 @@ import Overview from "./pages/Overview";
 import MeetTheTeam from "./pages/MeetTheTeam";
 import WhatWeDo from "./pages/WhatWeDo";
 import EducationAndTrainings from "./pages/EducationAndTrainings";
+import CareersPage from "./pages/CareersPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ function App() {
         {
           path: "/education-and-trainings",
           element: <EducationAndTrainings />,
+        },
+        {
+          path: "/jobs-and-careers",
+          element: <CareersPage />,
         },
       ],
     },

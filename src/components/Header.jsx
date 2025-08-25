@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const location = useLocation();
 
   const desktopMenuItems = [
     { name: "ECRC Overview", src: "/ecrc-overview" },
@@ -12,7 +14,7 @@ const Header = () => {
     { name: "What We Do", src: "/what-we-do" },
     { name: "Education & Trainings", src: "/education-and-trainings" },
     { name: "Other Activities", src: "/other-activities" },
-    { name: "Jobs & Careers", src: "/jobs-careers" },
+    { name: "Jobs & Careers", src: "/jobs-and-careers" },
     { name: "Gallery", src: "/gallery" },
     { name: "Pay/Donate", src: "/pay-donate" },
     { name: "Contact Us", src: "/contact-us" },
@@ -27,7 +29,7 @@ const Header = () => {
     { name: "Meet the Team", src: "/meet-the-team" },
     { name: "ECRC Overview", src: "/ecrc-overview" },
     { name: "Other Activities", src: "/other-activities" },
-    { name: "Jobs & Careers", src: "/jobs-careers" },
+    { name: "Jobs & Careers", src: "/jobs-and-careers" },
     { name: "Gallery", src: "/gallery" },
   ];
 
@@ -57,10 +59,12 @@ const Header = () => {
                   <Link
                     key={index}
                     to={item.src}
-                    className=" hover:text-purple-600  py-2 text-[0.85rem]   transition-colors duration-200 relative group"
+                    className={`${
+                      location.pathname === item.src ? "text-[#9402bf]" : ""
+                    } hover:text-[#9402bf]  py-2 text-[0.85rem]   transition-colors duration-200 relative group`}
                   >
                     {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-600 group-hover:w-full transition-all duration-300"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#9402bf] group-hover:w-full transition-all duration-300"></span>
                   </Link>
                 ))}
               </div>
@@ -145,7 +149,11 @@ const Header = () => {
                       key={index}
                       href={item.src}
                       onClick={handleMenuItemClick}
-                      className="block px-4 py-3 text-dark hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200 text-base font-medium"
+                      className={`block px-4 py-3  ${
+                        location.pathname === item.src
+                          ? "text-[#9402bf]"
+                          : "text-dark"
+                      }  hover:bg-purple-50 rounded-lg transition-colors duration-200 text-base font-medium`}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{
