@@ -4,5 +4,9 @@
 html, body{
   font-family: "Questrial", sans-serif;
 
-    color: rgb(51,51,51);
+    color: #666666;
+}
+
+.text-dark{
+  color: rgb(51, 51, 51);
 }

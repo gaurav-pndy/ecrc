@@ -80,12 +80,10 @@ const CoreTeam = () => {
 
               {/* Text Box Overlapping Bottom of Image */}
               <div className="absolute  z-10   bg-white w-[90%] md:w-[82%] right-0 -bottom-26  p-4">
-                <h3 className="text-2xl font-medium  text-gray-600 mb-1">
-                  {member.name}
-                </h3>
+                <h3 className="text-2xl font-medium   mb-1">{member.name}</h3>
 
-                <p className="text-gray-600 text-xl mb-1">{member.location}</p>
-                <p className="text-gray-600 text-xl">{member.country}</p>
+                <p className=" text-xl mb-1">{member.location}</p>
+                <p className=" text-xl">{member.country}</p>
               </div>
             </div>
           ))}

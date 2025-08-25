@@ -1,33 +1,34 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const desktopMenuItems = [
-    "ECRC Overview",
-    "Meet the Team",
-    "What We Do",
-    "Education & Trainings",
-    "Other Activities",
-    "Jobs & Careers",
-    "Gallery",
-    "Pay/Donate",
-    "Contact Us",
+    { name: "ECRC Overview", src: "/ecrc-overview" },
+    { name: "Meet the Team", src: "/meet-the-team" },
+    { name: "What We Do", src: "/what-we-do" },
+    { name: "Education & Trainings", src: "/education-and-trainings" },
+    { name: "Other Activities", src: "/other-activities" },
+    { name: "Jobs & Careers", src: "/jobs-careers" },
+    { name: "Gallery", src: "/gallery" },
+    { name: "Pay/Donate", src: "/pay-donate" },
+    { name: "Contact Us", src: "/contact-us" },
   ];
 
   const mobileMenuItems = [
-    "Home",
-    "Contact Us",
-    "Pay/Donate",
-    "Education & Trainings",
-    "What We Do",
-    "Meet the Team",
-    "ECRC Overview",
-    "Other Activities",
-    "Jobs & Careers",
-    "Gallery",
+    { name: "Home", src: "/" },
+    { name: "Contact Us", src: "/contact-us" },
+    { name: "Pay/Donate", src: "/pay-donate" },
+    { name: "Education & Trainings", src: "/education-and-trainings" },
+    { name: "What We Do", src: "/what-we-do" },
+    { name: "Meet the Team", src: "/meet-the-team" },
+    { name: "ECRC Overview", src: "/ecrc-overview" },
+    { name: "Other Activities", src: "/other-activities" },
+    { name: "Jobs & Careers", src: "/jobs-careers" },
+    { name: "Gallery", src: "/gallery" },
   ];
 
   const toggleMenu = () => {
@@ -42,25 +43,25 @@ const Header = () => {
     <>
       {/* Main Navbar */}
       <nav className=" shadow-sm border-b border-gray-100 relative ">
-        <div className="max-w-7xl mx-auto px-4 py-2 ">
+        <div className="max-w-7xl mx-auto px-4 py-2 text-[rgb(51,51,51)]">
           <div className="flex justify-between items-center ">
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <img src="/logo.avif" alt="ECRC logo" className="h-20" />
-            </div>
+            <Link to={"/"} className="flex-shrink-0">
+              <img src="/logo.avif" alt="ECRC logo" className="h-16 md:h-20" />
+            </Link>
 
             {/* Desktop Menu */}
             <div className="hidden lg:block">
               <div className="ml-6 flex items-baseline space-x-8 ">
                 {desktopMenuItems.map((item, index) => (
-                  <a
+                  <Link
                     key={index}
-                    href="#"
+                    to={item.src}
                     className=" hover:text-purple-600  py-2 text-[0.85rem]   transition-colors duration-200 relative group"
                   >
-                    {item}
+                    {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-600 group-hover:w-full transition-all duration-300"></span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -69,25 +70,33 @@ const Header = () => {
             <div className="lg:hidden z-60">
               <button
                 onClick={toggleMenu}
-                className="relative w-8 h-8 flex flex-col justify-between items-center p-2 group"
+                className="relative  grid grid-cols-2 gap-y-2 group"
               >
                 {/* Top Line */}
                 <motion.span
-                  className="w-6 h-0.5 bg-gray-700 rounded"
-                  animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                  className="w-5 h-1 bg-gray-800 rounded"
+                  animate={
+                    isOpen
+                      ? { rotate: 45, y: 6, x: 4 }
+                      : { rotate: 0, y: 0, x: 0 }
+                  }
                   transition={{ duration: 0.3 }}
                 />
+                <motion.span className="w-4 h-1 bg-transparent rounded" />
                 {/* Middle Line */}
                 <motion.span
-                  className="w-6 h-0.5 bg-gray-700 rounded"
-                  animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                  className="w-10 h-1 bg-gray-800 rounded col-span-2"
+                  animate={isOpen ? { rotate: 135 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.2 }}
                 />
                 {/* Bottom Line */}
+
                 <motion.span
-                  className="w-6 h-0.5 bg-gray-700 rounded"
+                  className="w-5 h-1 bg-gray-800 rounded col-start-2"
                   animate={
-                    isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
+                    isOpen
+                      ? { rotate: 45, y: -6, x: -4 }
+                      : { rotate: 0, y: 0, x: 0 }
                   }
                   transition={{ duration: 0.3 }}
                 />
@@ -123,19 +132,8 @@ const Header = () => {
               }}
               className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 lg:hidden overflow-y-auto"
             >
-              {/* Close button */}
-              <div className="flex justify-end p-4">
-                <motion.button
-                  onClick={toggleMenu}
-                  className="p-2 rounded-md text-gray-700 hover:text-purple-600 hover:bg-gray-50"
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <X className="h-6 w-6" />
-                </motion.button>
-              </div>
-
               {/* Menu Items */}
-              <div className="px-6 py-4">
+              <div className="px-6 py-4 mt-20">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -145,9 +143,9 @@ const Header = () => {
                   {mobileMenuItems.map((item, index) => (
                     <motion.a
                       key={index}
-                      href="#"
+                      href={item.src}
                       onClick={handleMenuItemClick}
-                      className="block px-4 py-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200 text-base font-medium"
+                      className="block px-4 py-3 text-dark hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-200 text-base font-medium"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{
@@ -156,7 +154,7 @@ const Header = () => {
                       }}
                       whileHover={{ x: 4 }}
                     >
-                      {item}
+                      {item.name}
                     </motion.a>
                   ))}
                 </motion.div>

@@ -26,7 +26,7 @@ const AboutSection = () => {
             className="space-y-6 lg:space-y-8"
           >
             {/* Main Description */}
-            <p className="text-lg  text-gray-600 leading-8 font-medium">
+            <p className="text-lg   leading-8 font-medium">
               “Eurasian Cancer Research Council (ECRC)” is a NOT-FOR-PROFIT
               organisation specializing in conducting and promoting
               collaborative Cancer Research beyond borders across continents.{" "}

@@ -112,11 +112,11 @@ const WhatWeDo = () => {
 
                     {/* Card Content */}
                     <div className="pt-8 text-center">
-                      <h3 className="md:text-xl font-medium text-gray-600 mb-6 leading-tight  flex items-center justify-center">
+                      <h3 className="md:text-xl font-medium  mb-6 leading-tight  flex items-center justify-center">
                         {service.title}
                       </h3>
 
-                      <p className="text-gray-700 leading-relaxed text-base ">
+                      <p className="text-dark leading-relaxed text-base ">
                         {service.description}
                       </p>
                     </div>
