@@ -8,6 +8,9 @@ import MeetTheTeam from "./pages/MeetTheTeam";
 import WhatWeDo from "./pages/WhatWeDo";
 import EducationAndTrainings from "./pages/EducationAndTrainings";
 import CareersPage from "./pages/CareersPage";
+import Gallery from "./pages/Gallery";
+import DonatePage from "./pages/DonatePage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -37,6 +40,18 @@ function App() {
         {
           path: "/jobs-and-careers",
           element: <CareersPage />,
+        },
+        {
+          path: "/gallery",
+          element: <Gallery />,
+        },
+        {
+          path: "/pay-or-donate",
+          element: <DonatePage />,
+        },
+        {
+          path: "/contact-us",
+          element: <ContactPage />,
         },
       ],
     },

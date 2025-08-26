@@ -6,7 +6,7 @@ const CareersPage = () => {
     <section className=" bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh-6rem)]">
         {/* Left Side - Content */}
-        <div className="flex  items-center justify-center lg:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="flex  items-center justify-center lg:py-24 px-4  lg:px-8">
           <div className="max-w-lg w-full text-center">
             {/* Title */}
             <motion.h1

@@ -16,14 +16,14 @@ const Header = () => {
     { name: "Other Activities", src: "/other-activities" },
     { name: "Jobs & Careers", src: "/jobs-and-careers" },
     { name: "Gallery", src: "/gallery" },
-    { name: "Pay/Donate", src: "/pay-donate" },
+    { name: "Pay/Donate", src: "/pay-or-donate" },
     { name: "Contact Us", src: "/contact-us" },
   ];
 
   const mobileMenuItems = [
     { name: "Home", src: "/" },
     { name: "Contact Us", src: "/contact-us" },
-    { name: "Pay/Donate", src: "/pay-donate" },
+    { name: "Pay/Donate", src: "/pay-or-donate" },
     { name: "Education & Trainings", src: "/education-and-trainings" },
     { name: "What We Do", src: "/what-we-do" },
     { name: "Meet the Team", src: "/meet-the-team" },
