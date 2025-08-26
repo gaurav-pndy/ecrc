@@ -11,6 +11,7 @@ import CareersPage from "./pages/CareersPage";
 import Gallery from "./pages/Gallery";
 import DonatePage from "./pages/DonatePage";
 import ContactPage from "./pages/ContactPage";
+import OtherActivites from "./pages/OtherActivites";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,6 +53,10 @@ function App() {
         {
           path: "/contact-us",
           element: <ContactPage />,
+        },
+        {
+          path: "/other-activities",
+          element: <OtherActivites />,
         },
       ],
     },
